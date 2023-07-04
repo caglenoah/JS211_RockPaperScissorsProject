@@ -14,10 +14,55 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
 
+  let handOne = hand1.toLowerCase().trim();
+  let handTwo = hand2.toLowerCase().trim();
+
+  if (handOne == handTwo) {
+    return "It's a tie!"
+  }
+  // if handOne is 'rock', and handTwo is 'rock, it is a tie
+  // if handOne is 'paper', and handTwo is 'paper', it is a tie
+  // if handOne is 'scissors, and handTwo is 'scissors', it is a tie
+  else if (handOne == 'rock') {
+    if (handTwo == 'paper') {
+      //paper wins
+      return "Hand Two Wins!"
+    }
+    else {
+  //scissors
+      return "handOne wins!"
+         }
+  }
+  else if (handOne == 'paper') {
+    if (handTwo == 'rock') {
+      return "Hand One Wins!"
+    }
+    //scissors
+    else {
+      return "Hand Two Wins!"
+    }
+
+  }
+  else if (handOne == 'scissors') {
+    if (handTwo == 'rock')
+  return "Hand Two Wins!"
+ }
+  else {
+    return "Hand One Wins!"
+}
+}
+  // if handOne is 'rock', and handTwo is 'scissors', handOne wins
+  // if handOne is 'rock', and handTwo is 'paper', handTwo wins
+  // if handOne is 'scissors', and handTwo is 'rock', handTwo wins
+  // if handOne is 'scissors', and handTwo is 'paper', handOne wins
+  // if handOne is 'paper', and handTwo is 'rock', handOne wins
+  // if handOne is 'paper, and handTwo is 'scissors', handTwo wins
+
+  
   // Write code here
   // Use the unit test to see what is expected
 
-}
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
