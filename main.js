@@ -16,41 +16,55 @@ const rockPaperScissors = (hand1, hand2) => {
 
   let handOne = hand1.toLowerCase().trim();
   let handTwo = hand2.toLowerCase().trim();
-
+  
+  // if handOne is 'scissors, and handTwo is 'scissors', it is a tie
+  // if handOne is 'paper', and handTwo is 'paper', it is a tie
+  // if handOne is 'rock', and handTwo is 'rock, it is a tie
+  // 
   if (handOne == handTwo) {
     return "It's a tie!"
-  }
-  // if handOne is 'rock', and handTwo is 'rock, it is a tie
-  // if handOne is 'paper', and handTwo is 'paper', it is a tie
-  // if handOne is 'scissors, and handTwo is 'scissors', it is a tie
+  }        //  rp
   else if (handOne == 'rock') {
     if (handTwo == 'paper') {
-      //paper wins
+      //
       return "Hand Two Wins!"
     }
-    else {
-  //scissors
+    else {   //rs
+
       return "handOne wins!"
          }
   }
+  
+  
+  
+
+  //    pr
   else if (handOne == 'paper') {
     if (handTwo == 'rock') {
       return "Hand One Wins!"
-    }
+    }   
     //scissors
     else {
       return "Hand Two Wins!"
     }
 
   }
-  else if (handOne == 'scissors') {
-    if (handTwo == 'rock')
-  return "Hand Two Wins!"
- }
-  else {
-    return "Hand One Wins!"
+    
+    
+    
+else if (handOne == 'scissors') {
+    if (handTwo == 'rock') {
+      return "Hand Two Wins!"
+    }   
+    
+    else {
+      return "Hand one Wins!"
+    }
+
+  }
+
 }
-}
+
   // if handOne is 'rock', and handTwo is 'scissors', handOne wins
   // if handOne is 'rock', and handTwo is 'paper', handTwo wins
   // if handOne is 'scissors', and handTwo is 'rock', handTwo wins
@@ -98,10 +112,24 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
-  });
-} else {
-
-  // always returns ask the user for another input
-  getPrompt();
-
+    it('should not allow blank inputes', () => {
+      assert.equal(rockPaperScissors('', '  '), "Please enter input");
+      assert.equal(rockPaperScissors('', ''), "please enter input");
+    })
+    it('should not allow number inputs', () => {
+      assert.equal(rockPaperScissors('123', 'scissors'), "Hand two wins!");
+      assert.equal(rockPaperScissors('Paper', '234'), "Hand two wins!");
+    
+    });
+    //one that makes it so you cant input the wrong word, so that the test doesnt fail.
+  }
+  )
 }
+  
+ else {
+
+      // always returns ask the user for another input
+      getPrompt();
+
+    }
+  
